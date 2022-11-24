@@ -19,6 +19,36 @@
             </objects>
             <point key="canvasLocation" x="1212" y="1379"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="EEa-IP-4hi">
+            <objects>
+                <viewController id="zJw-QH-Gfl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ml6-E2-itM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Детальная информация о цитате" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSf-mh-mig">
+                                <rect key="frame" x="20.5" y="389" width="373.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" name="WhiteLabelTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8zT-bN-gz6"/>
+                        <color key="backgroundColor" name="GreenViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iSf-mh-mig" firstAttribute="centerX" secondItem="8zT-bN-gz6" secondAttribute="centerX" id="GU6-Em-bTo"/>
+                            <constraint firstItem="8zT-bN-gz6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iSf-mh-mig" secondAttribute="trailing" id="QyC-uB-E5R"/>
+                            <constraint firstItem="iSf-mh-mig" firstAttribute="centerY" secondItem="8zT-bN-gz6" secondAttribute="centerY" id="jyZ-ve-Uzz"/>
+                            <constraint firstItem="iSf-mh-mig" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8zT-bN-gz6" secondAttribute="leading" id="lnv-6L-AXJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4IM-uB-H8L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGS-mv-MhU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-862" y="848"/>
+        </scene>
         <!--Main Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -182,6 +212,9 @@
                                                             <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <segue destination="zJw-QH-Gfl" kind="show" id="PsF-5f-Iun"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -343,14 +376,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="0BF-Nq-w30">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="0BF-Nq-w30" customClass="PhotoCell" customModule="Meditation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="znK-nO-SPw">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QJx-Eb-Zr1">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QJx-Eb-Zr1">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="128" id="nIJ-na-yFR"/>
@@ -375,6 +408,15 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="150" height="128"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="picture" destination="QJx-Eb-Zr1" id="dOV-0T-mu0"/>
+                                            <outlet property="time" destination="ESC-XK-ed8" id="Ycv-zs-TMs"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="addPhotoCell" id="wqm-M2-phu">
                                         <rect key="frame" x="210" y="0.0" width="150" height="128"/>
@@ -396,6 +438,14 @@
                                                     <state key="normal" image="plus" catalog="system">
                                                         <color key="titleColor" name="RoundedButtonTitleTextColor"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="insertNewPhotoAction:" destination="VNi-Jx-FBG" eventType="touchUpInside" id="MUL-IT-J2x"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -488,7 +538,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Hamburger" width="23.5" height="18"/>
-        <image name="Logo" width="202" height="213"/>
+        <image name="Logo" width="250" height="40"/>
         <image name="TabBarHome" width="29" height="30"/>
         <image name="TabBarListen" width="26" height="25"/>
         <image name="TabBarProfile" width="23" height="27"/>
